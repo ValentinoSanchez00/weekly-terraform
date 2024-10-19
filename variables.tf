@@ -5,15 +5,13 @@ variable "gr_name" {
 variable "tenant_id" {
   description = "Tenant ID"
   type = string
-  default = secret.ARM_TENANT_ID
+  default = "2835cee8-01b5-4561-b27c-2027631bcfe1"
 }
-
 variable "subscription_id" {
   description = "Subscription ID"
   type = string
-  default = secret.ARM_SUBSCRIPTION_ID
+  default = "86f76907-b9d5-46fa-a39d-aff8432a1868"
 }
-
 variable "vm_definitions" {
   
   type = map(object({
@@ -27,9 +25,7 @@ variable "vm_definitions" {
   }))
   description = "Definición de las máquinas virtuales a desplegar"
   
-
 }
-
   
 variable "location" {
   type = string
