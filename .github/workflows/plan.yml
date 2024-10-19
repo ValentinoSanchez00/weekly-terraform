@@ -16,8 +16,8 @@ jobs:
         run: ls -la
       - name: Configure az credentials
         run: |
-          $env:ARM_TENANT_ID="${{secrets.ARM_TENANT_ID}}"
-          $env:ARM_SUBSCRIPTION_ID="${{secrets.ARM_SUBSCRIPTION_ID}}"
+          export ARM_TENANT_ID="${{secrets.ARM_TENANT_ID}}"
+          export ARM_SUBSCRIPTION_ID="${{secrets.ARM_SUBSCRIPTION_ID}}"
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
