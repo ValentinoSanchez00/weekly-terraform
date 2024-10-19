@@ -18,3 +18,5 @@ jobs:
         run: terraform plan
       - name: Terraform Destroy
         run: terraform destroy -auto-approve
+      - name: Mensaje de confirmación
+        run: echo "Terraform destroy realizado con exito"
