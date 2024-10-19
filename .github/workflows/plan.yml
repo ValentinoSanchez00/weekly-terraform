@@ -1,0 +1,32 @@
+name: terraform-weekly
+
+on:
+  workflow_dispatch:
+    
+
+jobs:
+  plan:
+    name: Plan
+    runs-on: ubuntu-latest
+    environment: terraform
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: ls -la
+        run: ls -la
+      - name: Configure az credentials
+        run: |
+          export ARM_TENANT_ID="${{secrets.ARM_TENANT_ID}}"
+          export ARM_SUBSCRIPTION_ID="${{secrets.ARM_SUBSCRIPTION_ID}}"
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: latest
+      - name: Terraform Init
+        run: terraform init
+      - name: Terraform Plan
+        run: terraform plan -auto-approve
+      - name: terraform apply
+        run: terraform apply -auto-approve
+      
