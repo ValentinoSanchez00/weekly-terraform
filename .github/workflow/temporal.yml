@@ -1,8 +1,6 @@
 name: borrar cagada terraform
 on:
-  push:
-    branches:
-      - develop
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,3 +16,5 @@ jobs:
         run: terraform plan
       - name: Terraform Destroy
         run: terraform destroy -auto-approve
+      - name: Mensaje de confirmación
+        run: echo "Terraform destroy realizado con exito"
